@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Nav from "./_components/Nav";
+import React from 'react'
+import Home from './(home)/_components/Home'
 
-export default function Page() {
-  return (
-    <main className="">
-      <Nav />
-    </main>
-  );
+function page() {
+    return (
+        <Home />
+    )
 }
+
+export default page
