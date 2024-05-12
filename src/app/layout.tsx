@@ -15,20 +15,20 @@ export default function RootLayout({
   children, modal
 }: Props) {
 
-  const defaultLayout = 'w-full pt-[25px] px-[50px]'
+  const defaultLayout = 'flex-grow overflow-x-hidden overflow-y-scroll pt-[25px] px-[50px] pb-[300px]'
 
   return (
     <html lang="en">
-      <body>
+      <body className="overflow-hidden">
         {/* 상단 네비게이션 */}
-        <header>
+        <header >
           <Nav />
         </header>
-        <div className="flex">
+        <div className="flex ">
           {/* 좌측 메뉴 */}
-          <section>
+          <aside >
             <LeftMenu />
-          </section>
+          </aside>
           <section className={defaultLayout}>
             {children}
           </section>
