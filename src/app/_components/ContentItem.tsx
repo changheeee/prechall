@@ -4,6 +4,7 @@
 import { ContentItemProps } from "../_types/contentType";
 import Image from "next/image";
 import ViewsIcon from "../../../public/assets/ico_views.svg"
+import Link from "next/link";
 
 type Props = {
     rank: number,
@@ -25,6 +26,7 @@ export function formatViews(views: number) {
 export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
 
 
+    const keywordStyle = 'text-[16px] text-white text-opacity-95 font-semibold hover:text-[17px]'
     const spanStyle = 'flex items-center gap-[5px] text-[16px] text-white text-opacity-95 font-semibold'
     const defaultStrongStyle = 'font-montserrat italic text-[35px] [text-shadow:0px_2px_4px_var(--tw-shadow-color)] shadow-black/20'
 
@@ -43,13 +45,18 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
     }
 
     return (
-        <div className="relative p-[15px] flex flex-col justify-between
+        <Link
+            href={`/user/${item.author}/video/${item.id}/`}
+            className="relative p-[15px] flex flex-col justify-between
         w-[214px] h-[380px] 
         border border-[#eee] 
         rounded-[18px] overflow-hidden">
             {/* 상단 */}
             <header>
-                {isKeyword && <span className={spanStyle}>#{item.keyword}</span>}
+                {isKeyword &&
+                    <Link href={`/keyword/${item.keyword}`}>
+                        <span className={keywordStyle}>#{item.keyword}</span>
+                    </Link>}
             </header>
             {/* 하단 */}
             <footer className="flex items-end justify-between">
@@ -71,7 +78,7 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
             />
             {/* 그라디언트 커버 */}
             <div className='absolute -z-10 w-full h-full top-0 left-0 bg-gradient-to-b from-black/55 via-transparent to-black/50 opacity-50'></div>
-        </div>
+        </Link>
     )
 }
 

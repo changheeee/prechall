@@ -5,6 +5,7 @@ import { Pagination, A11y, Autoplay } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Link from 'next/link';
 
 
 export default function MainCarousel() {
@@ -34,12 +35,14 @@ export default function MainCarousel() {
                 className={swiperContainerStyle}>
                 {slideItems.map((item, i) => (
                     <SwiperSlide key={i}>
-                        <div className='absolute -z-10 w-full h-full top-0 left-0 bg-gradient-to-b from-transparent to-black/50'></div>
-                        <div className='flex flex-col gap-[5px] h-full justify-end p-[35px]'>
-                            <h2 className='text-[40px] text-white font-bold'>#{item.keword}</h2>
-                            <p className='ml-[10px] text-[20px] text-white font-semibold leading-[27px]'
-                                dangerouslySetInnerHTML={{ __html: item.description }}></p>
-                        </div>
+                        <Link href={`/keyword/${item.keword}`}>
+                            <div className='absolute -z-10 w-full h-full top-0 left-0 bg-gradient-to-b from-transparent to-black/50'></div>
+                            <div className='flex flex-col gap-[5px] h-full justify-end p-[35px]'>
+                                <h2 className='text-[40px] text-white font-bold'>#{item.keword}</h2>
+                                <p className='ml-[10px] text-[20px] text-white font-semibold leading-[27px]'
+                                    dangerouslySetInnerHTML={{ __html: item.description }}></p>
+                            </div>
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>
