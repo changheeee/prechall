@@ -15,7 +15,7 @@ export default function RootLayout({
   children, modal
 }: Props) {
 
-  const defaultLayout = 'flex-grow overflow-x-hidden overflow-y-scroll pt-[25px] px-[50px] pb-[300px]'
+  const defaultLayout = 'flex-grow h-[calc(100dvh-85px)] overflow-y-scroll overflow-x-hidden pt-[25px] px-[50px] pb-[300px]'
 
   return (
     <html lang="en">
@@ -24,7 +24,7 @@ export default function RootLayout({
         <header >
           <Nav />
         </header>
-        <div className="flex ">
+        <div className="flex">
           {/* 좌측 메뉴 */}
           <aside >
             <LeftMenu />

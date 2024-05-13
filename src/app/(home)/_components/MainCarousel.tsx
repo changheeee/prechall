@@ -8,11 +8,11 @@ import "swiper/css/pagination";
 
 
 export default function MainCarousel() {
-    const swiperContainerStyle = 'w-full h-full bg-gray-500 '
+    const swiperContainerStyle = 'w-full h-auto bg-gray-500 '
     const swiperItemStyle = 'flex items-end'
     const slideItems = [{ id: 0, keword: '키워드1', description: '키워드 설명<br>키워드 설명' }, { id: 1, keword: '키워드2', description: '키워드 설명<br>키워드 설명' }, { id: 2, keword: '키워드3', description: '키워드 설명<br>키워드 설명' }, { id: 3, keword: '키워드4', description: '키워드 설명<br>키워드 설명' }]
     return (
-        <div className='h-[40%] rounded-[18px] overflow-hidden'>
+        <div className='h-[40vh] rounded-[18px] overflow-hidden '>
             <Swiper pagination={true} modules={[Pagination, A11y, Autoplay]}
                 centeredSlides={true}
                 loop={true}
