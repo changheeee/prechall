@@ -12,10 +12,8 @@ export default function Home() {
             <MainCarousel />
             <h4 className={titleStyle}><HotIcon />실시간 급상승</h4>
             <ContentList />
-
-
-
             <h4 className={titleStyle}># {'키워드'}</h4>
+            <ContentList />
         </div>
     );
 }

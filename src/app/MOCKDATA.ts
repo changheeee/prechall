@@ -7,6 +7,9 @@ const contentData = [
     likes: 402,
     author: "changheeee",
     rank_point: 2424,
+    title: "맛집 방문했습니다!",
+    description:
+      "소문난 맛집에 방문했습니다 정말 추천합니다 꼭 와보세요 안오시면 후회합니다~~~<br/>소문대로 역시 맛이 훌륭하네요~<br/>부산에 오면 꼭 방문해보세요!",
   },
   {
     id: 1,

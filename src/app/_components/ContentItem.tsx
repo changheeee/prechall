@@ -12,17 +12,18 @@ type Props = {
     isRank?: boolean
 }
 
+// 숫자를 K, M 단위로 변환하는 함수
+export function formatViews(views: number) {
+    if (views >= 1000000) {
+        return (views / 1000000).toFixed(1) + 'M'; // 백만 단위
+    } else if (views >= 1000) {
+        return (views / 1000).toFixed(1) + 'K'; // 천 단위
+    }
+    return views.toString(); // 1000 미만은 그대로 출력
+}
+
 export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
 
-    // 숫자를 K, M 단위로 변환하는 함수
-    function formatViews(views: number) {
-        if (views >= 1000000) {
-            return (views / 1000000).toFixed(1) + 'M'; // 백만 단위
-        } else if (views >= 1000) {
-            return (views / 1000).toFixed(1) + 'K'; // 천 단위
-        }
-        return views.toString(); // 1000 미만은 그대로 출력
-    }
 
     const spanStyle = 'flex items-center gap-[5px] text-[16px] text-white text-opacity-95 font-semibold'
     const defaultStrongStyle = 'font-montserrat italic text-[35px] [text-shadow:0px_2px_4px_var(--tw-shadow-color)] shadow-black/20'
