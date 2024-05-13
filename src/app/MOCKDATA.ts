@@ -85,4 +85,15 @@ const contentData = [
   },
 ];
 
-export default contentData;
+const rankData = {
+  keywords: ["맛집", "여행", "영화", "운동", "음악"],
+  creators: [
+    "changheeee",
+    "travel_master",
+    "cinema_fan",
+    "fitlife",
+    "musiclover",
+  ],
+};
+
+export { contentData, rankData };

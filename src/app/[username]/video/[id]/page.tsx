@@ -9,7 +9,7 @@ import LikeIcon from "@public/assets/ico_prechall.svg"
 import CommentIcon from "@public/assets/ico_comment.svg"
 import ReportIcon from "@public/assets/ico_report.svg"
 
-import contentData from "@/app/MOCKDATA";
+import { contentData } from "@/app/MOCKDATA";
 import { formatViews } from '@/app/_components/ContentItem';
 
 export default function SingleContent() {

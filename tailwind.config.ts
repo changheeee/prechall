@@ -17,6 +17,9 @@ const config: Config = {
         sans: ["Pretendard", "ui-sans-serif", "system-ui"],
         montserrat: ["Montserrat", "ui-sans-serif", "system-ui"],
       },
+      dropShadow: {
+        dashboard: "3px 4px 4px 0 rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   plugins: [],

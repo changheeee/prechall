@@ -15,9 +15,9 @@ type Props = {
 // 숫자를 K, M 단위로 변환하는 함수
 export function formatViews(views: number) {
     if (views >= 1000000) {
-        return (views / 1000000).toFixed(1) + 'M'; // 백만 단위
+        return (views / 1000000).toFixed(0) + 'M'; // 백만 단위
     } else if (views >= 1000) {
-        return (views / 1000).toFixed(1) + 'K'; // 천 단위
+        return (views / 1000).toFixed(0) + 'K'; // 천 단위
     }
     return views.toString(); // 1000 미만은 그대로 출력
 }
@@ -56,7 +56,7 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
                 <div className="flex flex-col gap-[6px]">
                     <span className={spanStyle}>@{item.author}</span>
                     <span className={spanStyle}>
-                        <ViewsIcon />
+                        <ViewsIcon fill={'#fff'} />
                         {formatViews(item.views)}</span>
                 </div>
                 {isRank && <strong className={rankStyle(rank)}>{rank + 1}</strong>}

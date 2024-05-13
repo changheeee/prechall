@@ -1,8 +1,9 @@
 //컨텐츠 리스트 UI : 매개변수로 실시간 급상승, 키워드를 받아서 정렬하도록
+'use client'
 
 import React, { useState } from 'react';
 import ContentItem from "./ContentItem"
-import contentData from "@/app/MOCKDATA";
+import { contentData } from "@/app/MOCKDATA";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Keyboard, Mousewheel, Scrollbar } from "swiper/modules";
 import "swiper/css";
