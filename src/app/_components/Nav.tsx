@@ -29,8 +29,8 @@ export default function Nav() {
                     <Link
                         className='flex items-center gap-2 border border-gray-200 rounded-md px-[15px] py-[6px] text-[16px] leading-[1] 
                         hover:bg-gray-100 '
-                        href="/upload"><UploadIcon />업로드</Link>
-                    <Link href="/login">로그인</Link>
+                        href="/i/flow/upload"><UploadIcon />업로드</Link>
+                    <Link href="/i/flow/login">로그인</Link>
                 </div>
             </div>
         </div>

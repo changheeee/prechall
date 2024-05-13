@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import UserProfileTag from '@/app/_components/UserProfileTag';
+
 import MoreIcon from "@public/assets/ico_more.svg"
 import LikeIcon from "@public/assets/ico_prechall.svg"
 import CommentIcon from "@public/assets/ico_comment.svg"
@@ -15,6 +17,8 @@ export default function SingleContent() {
     const [isExpanded, setIsExpanded] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
 
+    // 컨텐츠 소유자 구분 임시 로그인 계정 아이디와 소유자가 같으면 true
+    const [isOwner, setIsOnwer] = useState(false);
 
     // 설명 텍스트의 표시 상태를 토글
     const toggleDescription = () => {
@@ -35,23 +39,12 @@ export default function SingleContent() {
                     <p className={`w-[95%] text-[14px] font-medium cursor-pointer
                         ${!isExpanded ? 'line-clamp-1 overflow-hidden' : ''}`}
                         onClick={toggleDescription}
-                        dangerouslySetInnerHTML={{ __html: data.description }} />
+                        dangerouslySetInnerHTML={{ __html: data.description as string }} />
                 </header>
+
                 <footer className="w-full flex items-center justify-between">
-                    <Link href={`/@${data.author}`}
-                        className="flex items-center gap-[5px]">
-                        <div className="relative rounded-full overflow-hidden w-[50px] h-[50px]">
-                            <Image
-                                src="/assets/sample_profile_img.png" //개별 이미지 경로로 변경
-                                alt="썸네일"
-                                layout="fill"
-                                objectFit="cover"  // 이미지가 div를 꽉 채우도록 설정
-                                className="absolute -z-20"
-                            />
-                        </div>
-                        <span className="font-semibold">@{data.author}</span>
-                    </Link>
-                    <MoreIcon className="cursor-pointer" />
+                    <UserProfileTag username={data.author} />
+                    {isOwner && <MoreIcon className="cursor-pointer" />}
                 </footer>
             </div>
 
@@ -63,6 +56,7 @@ export default function SingleContent() {
                         className="w-auto h-full"
                         src="/assets/sample_thumbnail.png" alt="dd" />
                 </div>
+
                 {/* 버튼박스 */}
                 <div className='h-full flex flex-col gap-[10px] justify-end'>
                     <div className='flex flex-col items-center gap-[5px]'>
@@ -86,6 +80,7 @@ export default function SingleContent() {
                         </Link>
                     </div>
                 </div>
+
             </div>
         </article>
     )
