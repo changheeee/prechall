@@ -1,6 +1,6 @@
 'use client'
 import { rankData } from "@/app/MOCKDATA"
-import { formatViews } from "@/app/_components/ContentItem";
+import { formatCounts } from "@/app/_components/ContentItem";
 import UserProfileTag from "@/app/_components/UserProfileTag";
 import ViewsIcon from '@public/assets/ico_views.svg'
 import PrechallIcon from '@public/assets/ico_prechall.svg'
@@ -50,7 +50,7 @@ export default function RankDashboard() {
                                 </div>
                                 <span className="flex items-center gap-[5px] font-montserrat font-semibold italic text-[18px]" >
                                     <ViewsIcon fill={'#333'} />
-                                    {formatViews(100000000)}
+                                    {formatCounts(100000000)}
                                 </span>
                             </li>
                         ))}
@@ -72,7 +72,7 @@ export default function RankDashboard() {
                                 </div>
                                 <span className="flex items-center gap-[5px] font-montserrat font-semibold italic text-[18px]" >
                                     <PrechallIcon fill={'#FFA801'} />
-                                    {formatViews(999)}
+                                    {formatCounts(999)}
                                 </span>
                             </li>
                         ))}

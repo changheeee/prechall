@@ -1,21 +1,17 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
+import CloseButton from "./CloseButton";
 
 export default function LoginModal() {
-    const router = useRouter();
-    const onClickClose = () => {
-        router.back();
-    };
 
     return (
         <div className='w-[500px] h-fit p-[25px] bg-white rounded-[15px] flex flex-col'>
             <div className='flex justify-between'>
                 <div className='flex'>
-                    <h4>로그인</h4>
-                    <h4>회원가입</h4>
+                    <h3 className='text-[22px] font-semibold ' >로그인</h3>
+                    <h3 className='text-[22px] font-semibold ' >회원가입</h3>
                 </div>
-                <span onClick={onClickClose}>X</span>
+                <CloseButton />
             </div>
             <span>ddd</span>
         </div>

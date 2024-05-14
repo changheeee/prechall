@@ -6,7 +6,7 @@ import { contentData as allContentData } from "../MOCKDATA";
 import { useInView } from 'react-intersection-observer';
 
 type Props = {
-    keyword: string,
+    keyword?: string,
 }
 
 export default function FullContentList({ keyword }: Props) {

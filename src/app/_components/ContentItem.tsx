@@ -1,5 +1,4 @@
-//콘텐츠 기본 리스트 아이템
-//키워드, @아이디, 조회수, 랭킹표시, 
+'use client'
 
 import { ContentItemProps } from "../_types/contentType";
 import Image from "next/image";
@@ -15,13 +14,13 @@ type Props = {
 }
 
 // 숫자를 K, M 단위로 변환하는 함수
-export function formatViews(views: number) {
-    if (views >= 1000000) {
-        return (views / 1000000).toFixed(0) + 'M'; // 백만 단위
-    } else if (views >= 1000) {
-        return (views / 1000).toFixed(0) + 'K'; // 천 단위
+export function formatCounts(count: number) {
+    if (count >= 1000000) {
+        return (count / 1000000).toFixed(0) + 'M'; // 백만 단위
+    } else if (count >= 1000) {
+        return (count / 1000).toFixed(0) + 'K'; // 천 단위
     }
-    return views.toString(); // 1000 미만은 그대로 출력
+    return count.toString(); // 1000 미만은 그대로 출력
 }
 
 export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
@@ -70,7 +69,7 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
                     <span className={spanStyle}>@{item.author}</span>
                     <span className={spanStyle}>
                         <ViewsIcon fill={'#fff'} />
-                        {formatViews(item.views)}</span>
+                        {formatCounts(item.views)}</span>
                 </div>
                 {isRank && <strong className={rankStyle(rank)}>{rank + 1}</strong>}
             </div>

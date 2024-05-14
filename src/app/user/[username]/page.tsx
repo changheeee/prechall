@@ -1,8 +1,9 @@
+import Profile from "../_components/Profile";
 
 
-export default function Profile() {
+export default function page() {
     return (
-        <div>프로필 페이지</div>
+        <Profile />
     )
 }
 

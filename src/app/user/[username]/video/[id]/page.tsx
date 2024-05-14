@@ -10,7 +10,7 @@ import CommentIcon from "@public/assets/ico_comment.svg"
 import ReportIcon from "@public/assets/ico_report.svg"
 
 import { contentData } from "@/app/MOCKDATA";
-import { formatViews } from '@/app/_components/ContentItem';
+import { formatCounts } from '@/app/_components/ContentItem';
 
 export default function SingleContent() {
     const data = contentData[0];
@@ -66,13 +66,13 @@ export default function SingleContent() {
                         >
                             <LikeIcon fill={isLiked ? '#FFA801' : '#333'} />
                         </Link>
-                        <span className='font-montserrat text-[12px] text-[#777] font-semibold'>{formatViews(data.likes)}</span>
+                        <span className='font-montserrat text-[12px] text-[#777] font-semibold'>{formatCounts(data.likes)}</span>
                     </div>
                     <div className='flex flex-col items-center gap-[5px]'>
                         <Link className='flex justify-center items-center w-[50px] h-[50px] rounded-full bg-[#F1F1F2]' href={'/'}>
                             <CommentIcon />
                         </Link>
-                        <span className='font-montserrat text-[12px] text-[#777] font-semibold'>{formatViews(30)}</span>
+                        <span className='font-montserrat text-[12px] text-[#777] font-semibold'>{formatCounts(30)}</span>
                     </div>
                     <div className='flex flex-col items-center gap-[5px]'>
                         <Link className='flex justify-center items-center w-[50px] h-[50px] rounded-full bg-[#F1F1F2]' href={'/'}>
