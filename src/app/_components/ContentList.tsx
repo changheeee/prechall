@@ -10,7 +10,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function ContentList() {
+type Props = {
+    isKeword: boolean,
+    isRank: boolean,
+}
+
+export default function ContentList({ isKeword, isRank }: Props) {
     const data = contentData;
     const [visibleItems, setVisibleItems] = useState(5); // 초기에 보여질 아이템 수
     // 랭크 포인트 기준 상위 10개 추출
@@ -20,7 +25,6 @@ export default function ContentList() {
 
     return (
         <article>
-
             <Swiper
                 className="grid grid-flow-col auto-cols-min w-full h-auto"
                 modules={[Mousewheel, Keyboard, Navigation, Scrollbar]}
@@ -52,7 +56,7 @@ export default function ContentList() {
                 }}>
                 {top10ContentData.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <ContentItem item={item} rank={index} isKeyword={true} isRank={true} />
+                        <ContentItem item={item} rank={index} isKeyword={isKeword} isRank={isRank} />
                     </SwiperSlide>
                 ))}
             </Swiper>

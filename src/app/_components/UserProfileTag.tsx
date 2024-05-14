@@ -10,7 +10,7 @@ type Props = {
 
 export default function UserProfileTag({ avatar, username, trend }: Props) {
     return (
-        <Link href={`/@${username}`}
+        <Link href={`/user/@${username}`}
             className="flex items-center gap-[5px]">
             <div className={`relative rounded-full overflow-hidden ${trend ? 'w-[30px] h-[30px]' : 'w-[50px] h-[50px]'}`}>
                 <Image

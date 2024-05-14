@@ -24,8 +24,6 @@ export function formatViews(views: number) {
 }
 
 export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
-
-
     const keywordStyle = 'text-[16px] text-white text-opacity-95 font-semibold hover:text-[17px]'
     const spanStyle = 'flex items-center gap-[5px] text-[16px] text-white text-opacity-95 font-semibold'
     const defaultStrongStyle = 'font-montserrat italic text-[35px] [text-shadow:0px_2px_4px_var(--tw-shadow-color)] shadow-black/20'
@@ -48,18 +46,18 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
         <Link
             href={`/user/${item.author}/video/${item.id}/`}
             className="relative p-[15px] flex flex-col justify-between
-        w-[214px] h-[380px] 
-        border border-[#eee] 
-        rounded-[18px] overflow-hidden">
+            w-[214px] h-[380px] 
+            border border-[#eee] 
+            rounded-[18px] overflow-hidden">
             {/* 상단 */}
-            <header>
+            <div>
                 {isKeyword &&
                     <Link href={`/keyword/${item.keyword}`}>
                         <span className={keywordStyle}>#{item.keyword}</span>
                     </Link>}
-            </header>
+            </div>
             {/* 하단 */}
-            <footer className="flex items-end justify-between">
+            <div className="flex items-end justify-between">
                 <div className="flex flex-col gap-[6px]">
                     <span className={spanStyle}>@{item.author}</span>
                     <span className={spanStyle}>
@@ -67,7 +65,7 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
                         {formatViews(item.views)}</span>
                 </div>
                 {isRank && <strong className={rankStyle(rank)}>{rank + 1}</strong>}
-            </footer>
+            </div>
             {/* 썸네일 */}
             <Image
                 src="/assets/sample_thumbnail.png" //개별 아이템 경로로 변경

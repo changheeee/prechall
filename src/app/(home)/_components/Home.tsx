@@ -9,9 +9,9 @@ export default function Home() {
         <div className='flex flex-col w-full h-auto'>
             <MainCarousel />
             <h4 className={titleStyle}><HotIcon />실시간 급상승</h4>
-            <ContentList />
+            <ContentList isKeword={true} isRank={true} />
             <h4 className={titleStyle}># {'키워드'}</h4>
-            <ContentList />
+            <ContentList isKeword={true} isRank={true} />
         </div>
     );
 }
