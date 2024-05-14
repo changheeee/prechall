@@ -36,7 +36,7 @@ export default function SingleContent() {
                 <header className="w-full">
                     <h4 className="mb-[5px] text-[28px] font-bold">#{data.keyword}</h4>
                     <h5 className="mb-[10px] text-[24px] font-semibold">{data.title}</h5>
-                    <p className={`w-[95%] text-[14px] font-medium cursor-pointer
+                    <p className={`w-[95%] text-[14px] font-medium cursor-pointer leading-tight
                         ${!isExpanded ? 'line-clamp-1 overflow-hidden' : ''}`}
                         onClick={toggleDescription}
                         dangerouslySetInnerHTML={{ __html: data.description as string }} />
