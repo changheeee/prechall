@@ -4,6 +4,7 @@ import { formatCounts } from "@/app/_components/ContentItem";
 import UserProfileTag from "@/app/_components/UserProfileTag";
 import ViewsIcon from '@public/assets/ico_views.svg'
 import PrechallIcon from '@public/assets/ico_prechall.svg'
+import Transition from "@/app/_components/Transition";
 
 
 export default function RankDashboard() {
@@ -38,21 +39,23 @@ export default function RankDashboard() {
                     </h3>
                     <ul className="flex flex-col gap-[10px] w-full mt-[10px]">
                         {rankData.keywords.map((item, index) => (
-                            <li key={index}
-                                className={rankListStyle}>
-                                <div className="flex items-center gap-[25px]">
-                                    <strong className={rankStyle(index)}>
-                                        {index + 1}
-                                    </strong>
-                                    <span className={spanStyle}>
-                                        #{rankData.keywords[index]}
+                            <Transition key={index}>
+                                <li
+                                    className={rankListStyle}>
+                                    <div className="flex items-center gap-[25px]">
+                                        <strong className={rankStyle(index)}>
+                                            {index + 1}
+                                        </strong>
+                                        <span className={spanStyle}>
+                                            #{rankData.keywords[index]}
+                                        </span>
+                                    </div>
+                                    <span className="flex items-center gap-[5px] font-montserrat font-semibold italic text-[18px]" >
+                                        <ViewsIcon fill={'#333'} />
+                                        {formatCounts(100000000)}
                                     </span>
-                                </div>
-                                <span className="flex items-center gap-[5px] font-montserrat font-semibold italic text-[18px]" >
-                                    <ViewsIcon fill={'#333'} />
-                                    {formatCounts(100000000)}
-                                </span>
-                            </li>
+                                </li>
+                            </Transition>
                         ))}
                     </ul>
                 </div>
@@ -62,23 +65,26 @@ export default function RankDashboard() {
                     </h3>
                     <ul className="flex flex-col gap-[10px] w-full mt-[10px]">
                         {rankData.creators.map((item, index) => (
-                            <li key={index}
-                                className={rankListStyle}>
-                                <div className="flex items-center gap-[25px]">
-                                    <strong className={rankStyle(index)}>
-                                        {index + 1}
-                                    </strong>
-                                    <UserProfileTag username={item} trend={true} />
-                                </div>
-                                <span className="flex items-center gap-[5px] font-montserrat font-semibold italic text-[18px]" >
-                                    <PrechallIcon fill={'#FFA801'} />
-                                    {formatCounts(999)}
-                                </span>
-                            </li>
+                            <Transition key={index}>
+                                <li
+                                    className={rankListStyle}>
+                                    <div className="flex items-center gap-[25px]">
+                                        <strong className={rankStyle(index)}>
+                                            {index + 1}
+                                        </strong>
+                                        <UserProfileTag username={item} trend={true} />
+                                    </div>
+                                    <span className="flex items-center gap-[5px] font-montserrat font-semibold italic text-[18px]" >
+                                        <PrechallIcon fill={'#FFA801'} />
+                                        {formatCounts(999)}
+                                    </span>
+                                </li>
+                            </Transition>
                         ))}
                     </ul>
                 </div>
             </article >
+
         </>
     )
 }

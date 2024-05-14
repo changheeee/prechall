@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import ContentItem from "./ContentItem";
 import { contentData as allContentData } from "../MOCKDATA";
 import { useInView } from 'react-intersection-observer';
+import Transition from './Transition';
 
 type Props = {
     keyword?: string,
@@ -30,13 +31,15 @@ export default function FullContentList({ keyword }: Props) {
     }
 
     return (
-        <ul className="mt-[20px] flex flex-wrap gap-x-[10px] gap-y-[10px] xl:justify-between 2xl:justify-start">
-            {contentData.map((item, i) => (
-                <li key={i} className="w-auto">
-                    <ContentItem item={item} rank={i} isKeyword={false} isRank={i < 10} />
-                </li>
-            ))}
-            <li ref={ref} className="w-full h-10"></li>
-        </ul>
+        <Transition>
+            <ul className="mt-[20px] flex flex-wrap gap-x-[10px] gap-y-[10px] xl:justify-between 2xl:justify-start">
+                {contentData.map((item, i) => (
+                    <li key={i} className="w-auto">
+                        <ContentItem item={item} rank={i} isKeyword={false} isRank={i < 10} />
+                    </li>
+                ))}
+                <li ref={ref} className="w-full h-10"></li>
+            </ul>
+        </Transition>
     );
 }
