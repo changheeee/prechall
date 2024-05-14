@@ -5,6 +5,7 @@ import { ContentItemProps } from "../_types/contentType";
 import Image from "next/image";
 import ViewsIcon from "../../../public/assets/ico_views.svg"
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = {
     rank: number,
@@ -42,13 +43,20 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
         }
     }
 
+    const router = useRouter();
+    const clickContent = () => {
+        router.push('/user/' + item.author + '/video/' + item.id)
+    }
+    // href = {`/user/${item.author}/video/${item.id}/`
+
+
     return (
-        <Link
-            href={`/user/${item.author}/video/${item.id}/`}
+        <div
+            onClickCapture={clickContent}
             className="relative p-[15px] flex flex-col justify-between
             w-[214px] h-[380px] 
             border border-[#eee] 
-            rounded-[18px] overflow-hidden">
+            rounded-[18px] overflow-hidden cursor-pointer">
             {/* 상단 */}
             <div>
                 {isKeyword &&
@@ -75,8 +83,10 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
                 className="absolute -z-20"
             />
             {/* 그라디언트 커버 */}
-            <div className='absolute -z-10 w-full h-full top-0 left-0 bg-gradient-to-b from-black/55 via-transparent to-black/50 opacity-50'></div>
-        </Link>
+            <div
+                className='absolute -z-10 w-full h-full top-0 left-0 bg-gradient-to-b from-black/55 via-transparent to-black/50 opacity-50'>
+            </div>
+        </div>
     )
 }
 
