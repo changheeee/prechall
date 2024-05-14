@@ -1,25 +1,42 @@
 'use client'
 
-import ContentItem from "./ContentItem"
-import { contentData } from "../MOCKDATA"
-// 키워드를 props로 받아서 컨텐츠 조회하여 데이터 렌더링?
+import { useState, useEffect } from 'react';
+import ContentItem from "./ContentItem";
+import { contentData as allContentData } from "../MOCKDATA";
+import { useInView } from 'react-intersection-observer';
 
 type Props = {
     keyword: string,
 }
 
 export default function FullContentList({ keyword }: Props) {
-    //키워드 api에 넣어서 데이터 뽑고 해당항목 렌더링하기
+    const [contentData, setContentData] = useState(allContentData.slice(0, 20));
+    const [page, setPage] = useState(1);
+    const { ref, inView } = useInView({
+        threshold: 1.0
+    });
+
+    useEffect(() => {
+        if (inView) {
+            loadMore();
+        }
+    }, [inView]);
+
+    const loadMore = () => {
+        const newPage = page + 1;
+        const newContent = allContentData.slice(0, newPage * 20);
+        setContentData(newContent);
+        setPage(newPage);
+    }
 
     return (
-        <ul className="mt-[20px] flex flex-wrap gap-x-[10px] gap-y-[10px] 
-        xl:justify-between 2xl:justify-start">
+        <ul className="mt-[20px] flex flex-wrap gap-x-[10px] gap-y-[10px] xl:justify-between 2xl:justify-start">
             {contentData.map((item, i) => (
                 <li key={i} className="w-auto">
                     <ContentItem item={item} rank={i} isKeyword={false} isRank={i < 10} />
                 </li>
             ))}
+            <li ref={ref} className="w-full h-10"></li>
         </ul>
-    )
+    );
 }
-
