@@ -44,7 +44,7 @@ export default function Keyword() {
                 </button>
 
             </div>
-            <FullContentList keyword={keyword} />
+            <FullContentList keyword={keyword} isRank={true} />
         </>
     );
 }

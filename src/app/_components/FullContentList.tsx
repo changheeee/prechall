@@ -8,9 +8,10 @@ import Transition from './Transition';
 
 type Props = {
     keyword?: string,
+    isRank?: boolean,
 }
 
-export default function FullContentList({ keyword }: Props) {
+export default function FullContentList({ keyword, isRank }: Props) {
     const [contentData, setContentData] = useState(allContentData.slice(0, 20));
     const [page, setPage] = useState(1);
     const { ref, inView } = useInView({
@@ -35,7 +36,7 @@ export default function FullContentList({ keyword }: Props) {
             <ul className="mt-[20px] flex flex-wrap gap-x-[10px] gap-y-[10px] xl:justify-between 2xl:justify-start">
                 {contentData.map((item, i) => (
                     <li key={i} className="w-auto">
-                        <ContentItem item={item} rank={i} isKeyword={false} isRank={i < 10} />
+                        <ContentItem item={item} rank={i} isKeyword={false} isRank={isRank ? i < 10 : false} />
                     </li>
                 ))}
                 <li ref={ref} className="w-full h-10"></li>
