@@ -54,7 +54,7 @@ export default function LeftMenu() {
                         <div className={defaultSubMenuStyle}>
                             {/* 유저 @userId는 로컬스토리지나 로그인 정보에서 따오자 */}
                             <Link className={getMenuLinkStyle(`/user/@changheeee`)} href={`/user/@changheeee`}>프로필</Link>
-                            <Link className={getMenuLinkStyle('/history')} href="/history">시청기록</Link>
+                            <Link className={getMenuLinkStyle(`/user/@changheeee/history`)} href="/user/@changheeee/history">시청기록</Link>
                         </div>
                     )
                 }

@@ -61,7 +61,7 @@ export default function RankDashboard() {
                 </div>
                 <div className="w-1/2">
                     <h3 className="font-montserrat font-extrabold italic text-[28px]">
-                        #CREATOR
+                        @CREATOR
                     </h3>
                     <ul className="flex flex-col gap-[10px] w-full mt-[10px]">
                         {rankData.creators.map((item, index) => (
