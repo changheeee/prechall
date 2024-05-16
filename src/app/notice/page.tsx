@@ -1,7 +1,10 @@
+import Board from "../_components/Board"
 
 export default function page() {
     return (
-        <div>page</div>
+        <>
+            <Board title="공지사항" boardType="notice" isAdmin={true} />
+        </>
     )
 }
 
