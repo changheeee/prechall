@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import UserProfileTag from '@/app/_components/UserProfileTag';
@@ -8,6 +8,9 @@ import MoreIcon from "@public/assets/ico_more.svg"
 import LikeIcon from "@public/assets/ico_prechall.svg"
 import CommentIcon from "@public/assets/ico_comment.svg"
 import ReportIcon from "@public/assets/ico_report.svg"
+import MuteIcon from "@public/assets/ico_mute.svg"
+import UnMuteIcon from "@public/assets/ico_unmute.svg"
+import ViewsIcon from "@public/assets/ico_views.svg"
 
 import { contentData } from "@/app/MOCKDATA";
 import { formatCounts } from '@/app/_components/ContentItem';
@@ -16,6 +19,11 @@ export default function SingleContent() {
     const data = contentData[0];
     const [isExpanded, setIsExpanded] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const [isMuted, setIsMuted] = useState(false);
+    const [isPaused, setIsPaused] = useState(true);
+    const [progress, setProgress] = useState(0);
+    const requestRef = useRef<number | null>(null);
 
     // 컨텐츠 소유자 구분 임시 로그인 계정 아이디와 소유자가 같으면 true
     const [isOwner, setIsOnwer] = useState(false);
@@ -25,10 +33,55 @@ export default function SingleContent() {
         setIsExpanded(!isExpanded);
     };
 
-    //좋아요 버튼 테스트 토글
+    // 좋아요 버튼 테스트 토글
     const toggleLike = () => {
         setIsLiked(!isLiked);
     }
+
+    // 영상 재생/멈춤 토글
+    const toggleVideoPlay = () => {
+        if (videoRef.current) {
+            if (videoRef.current.paused) {
+                videoRef.current.play();
+                setIsPaused(false);
+            } else {
+                videoRef.current.pause();
+                setIsPaused(true);
+            }
+        }
+    }
+
+    // 음소거 토글
+    const toggleMute = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !isMuted;
+            setIsMuted(!isMuted);
+        }
+    }
+
+    const updateProgress = useCallback(() => {
+        if (videoRef.current) {
+            const currentTime = videoRef.current.currentTime;
+            const duration = videoRef.current.duration;
+            if (duration > 0) {
+                setProgress((currentTime / duration) * 100);
+            }
+            requestRef.current = requestAnimationFrame(updateProgress);
+        }
+    }, [videoRef]);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            setIsPaused(videoRef.current.paused);
+            requestRef.current = requestAnimationFrame(updateProgress);
+        }
+
+        return () => {
+            if (requestRef.current) {
+                cancelAnimationFrame(requestRef.current);
+            }
+        };
+    }, [updateProgress]);
 
     return (
         <article className="flex justify-between gap-[30px] h-full">
@@ -49,12 +102,39 @@ export default function SingleContent() {
             </div>
 
             {/* 영상 들어가는 부분 */}
-            <div className="flex-[1] h-full flex gap-[20px]">
-                <div className="rounded-[20px] overflow-hidden">
-                    {/* 영상으로 교체 */}
-                    <img
-                        className="w-auto h-full"
-                        src="/assets/sample_thumbnail.png" alt="dd" />
+            <div className="flex-[1] h-full flex gap-[20px] ">
+                <div className="relative rounded-[20px] overflow-hidden flex items-center justify-center aspect-[9/16] w-auto h-full group">
+                    {/* 조회수,음소거 버튼 */}
+                    <div className='absolute left-0 top-[20px] px-[20px] w-full flex justify-between z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+                        <span className='flex items-center gap-[5px] text-white opacity-90 font-semibold'>
+                            <ViewsIcon fill={'white'} /> {formatCounts(data.views)}
+                        </span>
+                        <button onClickCapture={toggleMute}>
+                            {isMuted ? <UnMuteIcon /> : <MuteIcon />}
+                        </button>
+                    </div>
+
+                    {/* <div
+                        className={`absolute z-10 w-full h-full object-cover bg-black transition-opacity duration-300 ${isPaused ? 'opacity-80 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                        onClick={toggleVideoPlay}
+                    ></div> */}
+
+                    <video
+                        src={'/assets/videos/sample2.mp4'} // 비디오 파일 경로
+                        className="w-auto h-full object-cover"
+                        autoPlay
+                        muted={isMuted}
+                        loop
+                        playsInline
+                        controls={false}
+                        ref={videoRef}
+                        onClick={toggleVideoPlay}
+                    ></video>
+
+                    <div className='lengthBar absolute w-full flex h-[10px] left-0 bottom-0 z-10 '>
+                        <span className='w-full h-full bg-[#eee]'></span>
+                        <span className='absolute left-0 h-full bg-[#FFB321]' style={{ width: `${progress}%` }}></span>
+                    </div>
                 </div>
 
                 {/* 버튼박스 */}
@@ -80,9 +160,7 @@ export default function SingleContent() {
                         </Link>
                     </div>
                 </div>
-
             </div>
         </article>
     )
 }
-
