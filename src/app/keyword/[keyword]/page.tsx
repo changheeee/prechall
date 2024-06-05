@@ -1,8 +1,8 @@
-import Keyword from "./_components/Keyword"
+import KeywordList from "./_components/KeywordList"
 
 export default function page() {
     return (
-        <Keyword />
+        <KeywordList />
     )
 }
 

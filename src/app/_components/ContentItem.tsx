@@ -43,9 +43,15 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
     }
 
     const router = useRouter();
+    // const clickContent = () => {
+    //     router.push('/user/' + item.author + '/video/' + item.id)
+    // }
+
+    //키워드별 영상 테스트
     const clickContent = () => {
-        router.push('/user/' + item.author + '/video/' + item.id)
+        router.push('/keyword/' + item.keyword + '/video')
     }
+
     // href = {`/user/${item.author}/video/${item.id}/`
 
 
@@ -59,6 +65,7 @@ export default function ContentItem({ rank, item, isKeyword, isRank }: Props) {
             {/* 상단 */}
             <div>
                 {isKeyword &&
+
                     <Link href={`/keyword/${item.keyword}`}>
                         <span className={keywordStyle}>#{item.keyword}</span>
                     </Link>}

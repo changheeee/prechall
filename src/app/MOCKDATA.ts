@@ -3,6 +3,7 @@ const contentData = [
   {
     id: 0,
     keyword: "맛집",
+    video_src: "/assets/videos/sample2.mp4",
     views: 15622231,
     likes: 402,
     author: "changheeee",
@@ -13,7 +14,9 @@ const contentData = [
   },
   {
     id: 1,
-    keyword: "여행",
+    keyword: "맛집",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 8923451,
     likes: 821,
     author: "travel_master",
@@ -24,7 +27,9 @@ const contentData = [
   },
   {
     id: 2,
-    keyword: "영화",
+    keyword: "맛집",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 7521234,
     likes: 921,
     author: "cinema_fan",
@@ -36,6 +41,8 @@ const contentData = [
   {
     id: 3,
     keyword: "운동",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5631123,
     likes: 678,
     author: "fitlife",
@@ -46,7 +53,9 @@ const contentData = [
   },
   {
     id: 4,
-    keyword: "음악",
+    keyword: "맛집",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4721234,
     likes: 1023,
     author: "musiclover",
@@ -58,6 +67,8 @@ const contentData = [
   {
     id: 5,
     keyword: "게임",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 9112341,
     likes: 1543,
     author: "gamerpro",
@@ -68,7 +79,9 @@ const contentData = [
   },
   {
     id: 6,
-    keyword: "요리",
+    keyword: "맛집",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 6783241,
     likes: 784,
     author: "cookingstar",
@@ -80,6 +93,8 @@ const contentData = [
   {
     id: 7,
     keyword: "IT",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 6123412,
     likes: 564,
     author: "techguru",
@@ -91,6 +106,8 @@ const contentData = [
   {
     id: 8,
     keyword: "패션",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 7921321,
     likes: 994,
     author: "fashionista",
@@ -101,7 +118,9 @@ const contentData = [
   },
   {
     id: 9,
-    keyword: "예술",
+    keyword: "맛집",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5123411,
     likes: 675,
     author: "artistico",
@@ -113,6 +132,8 @@ const contentData = [
   {
     id: 10,
     keyword: "책",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4012341,
     likes: 543,
     author: "bookworm",
@@ -124,6 +145,8 @@ const contentData = [
   {
     id: 11,
     keyword: "사진",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3781234,
     likes: 432,
     author: "shutterbug",
@@ -135,6 +158,8 @@ const contentData = [
   {
     id: 12,
     keyword: "디자인",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3612341,
     likes: 654,
     author: "design_master",
@@ -146,6 +171,8 @@ const contentData = [
   {
     id: 13,
     keyword: "뷰티",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4512341,
     likes: 743,
     author: "beautyguru",
@@ -157,6 +184,8 @@ const contentData = [
   {
     id: 14,
     keyword: "자동차",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5123451,
     likes: 832,
     author: "carlovers",
@@ -168,6 +197,8 @@ const contentData = [
   {
     id: 15,
     keyword: "자전거",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 2923451,
     likes: 321,
     author: "bikelover",
@@ -179,6 +210,8 @@ const contentData = [
   {
     id: 16,
     keyword: "사진",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3781234,
     likes: 432,
     author: "shutterbug",
@@ -190,6 +223,8 @@ const contentData = [
   {
     id: 17,
     keyword: "디자인",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3612341,
     likes: 654,
     author: "design_master",
@@ -201,6 +236,8 @@ const contentData = [
   {
     id: 18,
     keyword: "뷰티",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4512341,
     likes: 743,
     author: "beautyguru",
@@ -212,6 +249,8 @@ const contentData = [
   {
     id: 19,
     keyword: "자동차",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5123451,
     likes: 832,
     author: "carlovers",
@@ -223,6 +262,8 @@ const contentData = [
   {
     id: 20,
     keyword: "자전거",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 2923451,
     likes: 321,
     author: "bikelover",
@@ -234,6 +275,8 @@ const contentData = [
   {
     id: 21,
     keyword: "건강",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 6312341,
     likes: 832,
     author: "healthguru",
@@ -245,6 +288,8 @@ const contentData = [
   {
     id: 22,
     keyword: "취미",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4212341,
     likes: 421,
     author: "hobbyist",
@@ -256,6 +301,8 @@ const contentData = [
   {
     id: 23,
     keyword: "캠핑",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5312341,
     likes: 943,
     author: "camper",
@@ -267,6 +314,8 @@ const contentData = [
   {
     id: 24,
     keyword: "요가",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3921234,
     likes: 512,
     author: "yogamaster",
@@ -278,6 +327,8 @@ const contentData = [
   {
     id: 25,
     keyword: "공예",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3212341,
     likes: 321,
     author: "craftlover",
@@ -289,6 +340,8 @@ const contentData = [
   {
     id: 26,
     keyword: "비즈니스",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 7212341,
     likes: 1123,
     author: "businessguru",
@@ -300,6 +353,8 @@ const contentData = [
   {
     id: 27,
     keyword: "부동산",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 6123451,
     likes: 723,
     author: "realestatepro",
@@ -311,6 +366,8 @@ const contentData = [
   {
     id: 28,
     keyword: "주식",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5312341,
     likes: 832,
     author: "stocktrader",
@@ -322,6 +379,8 @@ const contentData = [
   {
     id: 29,
     keyword: "기술",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4912341,
     likes: 654,
     author: "techenthusiast",
@@ -333,6 +392,8 @@ const contentData = [
   {
     id: 30,
     keyword: "교육",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4712341,
     likes: 543,
     author: "educator",
@@ -344,6 +405,8 @@ const contentData = [
   {
     id: 31,
     keyword: "자연",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4312341,
     likes: 432,
     author: "naturelover",
@@ -355,6 +418,8 @@ const contentData = [
   {
     id: 32,
     keyword: "사진",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3781234,
     likes: 432,
     author: "shutterbug",
@@ -366,6 +431,8 @@ const contentData = [
   {
     id: 33,
     keyword: "디자인",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3612341,
     likes: 654,
     author: "design_master",
@@ -377,6 +444,8 @@ const contentData = [
   {
     id: 34,
     keyword: "뷰티",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4512341,
     likes: 743,
     author: "beautyguru",
@@ -388,6 +457,8 @@ const contentData = [
   {
     id: 35,
     keyword: "자동차",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5123451,
     likes: 832,
     author: "carlovers",
@@ -399,6 +470,8 @@ const contentData = [
   {
     id: 36,
     keyword: "자전거",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 2923451,
     likes: 321,
     author: "bikelover",
@@ -410,6 +483,8 @@ const contentData = [
   {
     id: 37,
     keyword: "건강",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 6312341,
     likes: 832,
     author: "healthguru",
@@ -421,6 +496,8 @@ const contentData = [
   {
     id: 38,
     keyword: "취미",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 4212341,
     likes: 421,
     author: "hobbyist",
@@ -432,6 +509,8 @@ const contentData = [
   {
     id: 39,
     keyword: "캠핑",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 5312341,
     likes: 943,
     author: "camper",
@@ -443,6 +522,8 @@ const contentData = [
   {
     id: 40,
     keyword: "요가",
+    video_src: "/assets/videos/sample2.mp4",
+
     views: 3921234,
     likes: 512,
     author: "yogamaster",
